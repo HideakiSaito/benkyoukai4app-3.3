@@ -1,0 +1,13 @@
+# English strings go here for Rails i18n
+en:
+  label_view_customize: "View customize"
+  label_view_customize_plural: "View customizes"
+  label_view_customizes_new: "New view customize"
+  field_path_pattern: "Path pattern"
+  field_customize_type: "Type"
+  field_code: "Code"
+  field_is_private: "Private"
+  field_is_enabled: "Enabled"
+  field_author: "Author"
+  text_path_pattern_info: "Path pattern is specified with a regular expression. (ex. /issues/[0-9]+)"
+  text_path_pattern_match_info: "If there is a match with the path of the page, the following code is executed."

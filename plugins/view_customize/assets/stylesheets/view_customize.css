@@ -1,0 +1,47 @@
+table.list td.code, table.list td.path {
+    text-align: left;
+}
+
+table.list td.id {
+    min-width: 40px;
+}
+
+table.list tr.disable {
+    color: #aaaaaa;
+}
+
+table.list tr.private {
+    font-style: italic;
+}
+
+table.view_customize {
+    width: 100%;
+}
+
+table.view_customize th {
+    text-align: right;
+    vertical-align: top;
+    width: 10%;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+table.view_customize td {
+    vertical-align: top;
+}
+
+table.view_customize td pre {
+    margin: 0;
+    padding: 2px 4px;
+    background-color: #FFFFFF;
+    border: 1px solid #E4E4E4;
+}
+
+textarea#view_customize_code {
+    resize: vertical;
+    width: 95%;
+}
+
+#admin-menu a.view_customize {
+    background-image: url("../images/server_key.png");
+}

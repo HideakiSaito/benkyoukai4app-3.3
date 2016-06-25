@@ -1,0 +1,243 @@
+<%
+  plugin = Redmine::Plugin.find('easy_gantt')
+  easy_extensions = EasyGantt.easy_extensions?
+
+  main_gantt_params = @query.to_params.merge(key: User.current.api_key, format: 'json')
+  main_gantt_path = if @project
+      issues_easy_gantt_path(@project, main_gantt_params)
+    else
+      projects_easy_gantt_path(main_gantt_params)
+    end
+%>
+
+<div id="easy_gantt" class="<%= easy_extensions ? 'easy' : 'redmine' %> gantt clear">
+  <% if User.current.admin? %>
+    <div class="contextual settings">
+      <%
+        # Easy is called URI.escape before redirect to back
+        # So a%7Cb" is transformed into "a%257Cb" (original "a|b")
+      %>
+      <%= link_to l(:label_easy_gantt_settings), plugin_settings_path(plugin, back_url: URI.unescape(request.fullpath)), class: 'icon icon-folder' %>
+    </div>
+  <% end %>
+
+  <%= render @query, easy_query_name: l(:heading_easy_gantts_issues),
+                     wrapper_class: '',
+                     form_options: { additional_elements_to_serialize: '$("input#easy_gantt_type")' },
+                     options: { show_free_search: false, show_custom_formatting: false } %>
+
+  <%= hidden_field_tag 'gantt_type', '', id: 'easy_gantt_type' %>
+
+  <%= render 'menu_graph' %>
+
+  <div id="easy_gantt_footer" class="gantt-footer">
+
+    <div id="easy_gantt_footer_legend" class="gantt-footer-legend"></div>
+    <div id="gantt_footer_buttons" class="gantt-footer-menu">
+      <%= easy_gantt_js_button(l(:button_print), :icon => 'icon-print', :id => 'button_print') %>
+      <%= easy_gantt_js_button(:load_sample_data, :id => 'button_sample') %>
+
+      <% if easy_extensions %>
+
+        <% if @project %>
+          <select id="select_scheme_select" style="width: auto" title="<%= l(:label_color_by, scope: [:easy_gantt, :scheme_by]) %>:">
+            <option value="issue_priority"><%= l('easy_gantt.scheme_by.label_by_priority') %></option>
+            <option value="issue_status"><%= l('easy_gantt.scheme_by.label_by_status') %></option>
+            <option value="tracker"><%= l('easy_gantt.scheme_by.label_by_tracker') %></option>
+          </select>
+        <% else %>
+          <select id="select_scheme_select" style="width: auto" title="<%= l(:label_color_by, scope: [:easy_gantt, :scheme_by]) %>:">
+            <option value="project_priority"><%= l('easy_gantt.scheme_by.label_by_priority') %></option>
+            <option value="project_status"><%= l('easy_gantt.scheme_by.label_by_status') %></option>
+          </select>
+        <% end %>
+      <% end %>
+
+      <%= easy_gantt_js_button(l(:close_all_parent_issues, :scope => [:easy_gantt, :button]), :id => 'button_close_all_parents') %>
+      <%= easy_gantt_js_button(l(:delayed_project_filter, :scope => [:easy_gantt, :button]), :id => 'button_delayed_project_filter') if EasySetting.value('easy_gantt_show_project_progress') %>
+
+      <% if @project.nil? && EasySetting.value(:easy_gantt_show_lowest_progress_tasks) %>
+        <%= easy_gantt_js_button(:show_lowest_progress_tasks, id: 'button_show_lowest_progress_tasks') %>
+      <% end %>
+    </div>
+    <%= content_tag(:p, link_to(l(:text_easy_gantt_footer), l(:link_easy_gantt_plugin), :target => '_blank')) unless EasyGantt.easy_extensions? %>
+  </div>
+</div>
+<%= render 'includes' %>
+
+<%= content_for :header_tags do %>
+  <script type="text/javascript">
+    window.ysy = window.ysy || {};
+    ysy.settings = ysy.settings || {};
+    $.extend(true, ysy.settings, {
+      easyRedmine: <%= !!EasyGantt.easy_extensions? %>,
+      language: '<%= j I18n.locale.to_s %>',
+      <% if @project %>
+      project: <%= { id: @project.id, name: @project.name }.to_json.html_safe %>,
+      <% end %>
+      nonWorkingWeekDays: <%= EasyGantt.non_working_week_days.to_json.html_safe %>,
+      dateFormat: '<%=j Setting.date_format %>',
+      holidays: [],
+      hoursPerDay: 8,
+      schemeBy: '<%= if @project then;EasySetting.value('issue_color_scheme_for'); else 'project_priority'; end %>',
+      defaultZoom: "<%= EasySetting.value(:easy_gantt_default_zoom) %>",
+      // TODO: deault value to EasySetting
+      milestonePush: <%= (EasyGantt.easy_extensions? && !EasySetting.value('milestone_effective_date_from_issue_due_date')) ? true : false %>,
+      paths: {
+        rootPath: '<%= home_path %>',
+        mainGantt: "<%= main_gantt_path.html_safe %>",
+        issuePOST: "<%= issues_path(:format => 'json', :key => User.current.api_key) %>",
+        issuePUT: "<%= issue_path(':issueID', :format => 'json', :key => User.current.api_key) %>",
+        issueDELETE: "<%= issue_path(':issueID', :format => 'json', :key => User.current.api_key) %>",
+        relationPOST: "<%= issue_relations_path(':issueID', :format => 'json', :key => User.current.api_key) %>",
+        relationPUT: "<%= relation_easy_gantt_path(':projectID',':relaID', :format => 'json', :key => User.current.api_key) %>",
+        relationDELETE: "<%= url_for(:id => ':relaID', :controller => :issue_relations, :action => :destroy, :format => 'json', :key => User.current.api_key, :only_path => true)%>",
+        versionPOST: "<%= project_versions_path(':projectID', :format => 'json', :key => User.current.api_key) %>",
+        versionPUT: "<%= version_path(':versionID', :format => 'json', :key => User.current.api_key) %>",
+        sample_data: "<%= home_path %>plugin_assets/easy_gantt/javascripts/sample_{{version}}.json"
+      },
+      labels: {
+        buttons: {
+          button_delete: '<%= l(:button_delete) %>',
+          button_submit: '<%= l(:button_submit) %>',
+          button_yes: '<%= l(:general_text_Yes) %>',
+          button_no: '<%= l(:general_text_No) %>',
+          button_cancel: '<%= l(:button_cancel) %>',
+          button_reload: '<%= l(:reload, :scope => [:easy_gantt, :button]) %>',
+          button_save: '<%= l(:button_save) %>'
+        },
+        types:{
+          project:'<%= l(:field_project) %>',
+          issue:'<%= l(:field_issue) %>',
+          milestone:'<%= l(:field_version) %>',
+          relation:'<%= l(:field_relation) %>'
+        },
+        sample_text: '<%= l(:text, :scope => [:easy_gantt, :sample]).html_safe %>',
+        sample_global_free_text:'<%= l(:text, :scope => [:easy_gantt, :sample_global_free]).html_safe %>',
+        date: {
+          month_full: <%=raw l('date.month_names').compact.to_json %>,
+          month_short: <%=raw l('date.abbr_month_names').compact.to_json %>,
+          day_full: <%=raw l('date.day_names').compact.to_json %>,
+          day_short: <%=raw l('date.abbr_day_names').compact.to_json %>
+        },
+        links: {
+          start_to_start: '<%= l(:label_start_to_start) %>',
+          start_to_finish: '<%= l(:label_start_to_finish) %>',
+          finish_to_finish: '<%= l(:label_finish_to_finish) %>',
+          precedes: '<%= l(:label_precedes) %>'
+        },
+        errors: <%=raw l('activerecord.errors.messages').compact.to_json %>,
+        errors2:{
+          unsaved_parent:'<%= l(:unsaved_parent, :scope => [:easy_gantt, :errors]) %>',
+          loop_link:'<%= l(:loop_link, :scope => [:easy_gantt, :errors]) %>',
+          link_target_new:'<%= l(:link_target_new, :scope => [:easy_gantt, :errors]) %>',
+          link_target_readonly: '<%= l(:link_target_readonly, :scope => [:easy_gantt, :errors]) %>',
+          unsupported_link_type:'<%= l(:unsupported_link_type, :scope => [:easy_gantt, :errors]) %>',
+          duplicate_link:'<%= l(:duplicate_link, :scope => [:easy_gantt, :errors]) %>'
+        },
+        gateway:{
+          sendFailed:"<%= l(:send_failed, :scope => [:easy_gantt, :gateway]) %>",
+          entitySaveFailed:"<%= l(:entity_save_failed, :scope => [:easy_gantt, :gateway]) %>",
+          allSended:"<%= l(:notice_successful_update) %>"
+        }
+      }
+    });
+    $(document).ready(function () {
+      $("p.nodata").remove()
+    })
+  </script>
+  <script type="text/javascript">
+    window.ysy = window.ysy || {};
+    ysy.view = ysy.view || {};
+    ysy.view.templates = $.extend(ysy.view.templates,{
+    TaskTooltip:
+      '<div class="name"><b>{{name}}</b></div>\
+      <div class="start_date"><%= l(:field_start_date) %>: <strong>{{start_date}}</strong></div>\
+      {{#end_date}}\
+      <div class="end_date"><%= l(:field_due_date) %>: <strong>{{end_date}}</strong></div>\
+      {{/end_date}}\
+      {{#columns}}\
+        <div class="{{name}}">{{label}}: <strong>{{value}}</strong></div>\
+      {{/columns}}\
+      {{#problems}}\
+      {{#overmilestone}}\
+      <div class="gantt-tooltip-problem"><%= l(:overmile, :scope => [:easy_gantt, :errors]) %></div>\
+      {{/overmilestone}}\
+      {{#too_short}}\
+      <div class="gantt-tooltip-problem"><%= l(:too_short, :scope => [:easy_gantt, :errors]) %></div>\
+      {{/too_short}}\
+      {{/problems}}\
+    ',
+      LinkConfigPopup: "\
+      <h3 class='title'><%= l(:heading_delay_popup) %></h3>\
+      <label for='link_delay_input'><%= l(:field_delay) %>:</label><input id='link_delay_input' type='number' min='-1' value='{{delay}}' size='3' >\
+      <a id='link_fix_actual' class='button icon icon-link' href='javascript:void(0)' ><%= l(:button_use_actual_delay) %></a>\
+      <div id='link_popup_button_cont' ><hr>\
+        <a id='link_delete' class='icon icon-unlink button'  href='javascript:void(0)'><%= l(:button_delete) %></a>\
+        <a id='link_close' class='icon icon-save button-positive'  href='javascript:void(0)' style='float:right'><%= l(:button_submit) %></a>\
+      </div>\
+    ",
+    SuperPanel:'\
+    {{#sample}}\
+    <div id="sample_cont" class="flash notice gantt-sample-flash">\
+    <h2 id="sample_label"><%= l(:header, :scope => [:easy_gantt, :sample]) %></h2>\
+    <p>{{{text}}}</p>\
+    \
+    <p class="" style="text-align:center">\
+    <a id="sample_video_button" class="icon icon-youtube" href="javascript:void(0)"><%= l(:video_label, :scope => [:easy_gantt, :sample]) %></a>\
+    {{^global_free}}\
+    <a id="sample_close_button" class="gantt-sample-close-button button button-important" href="javascript:void(0)" title="<%= l(:close_label, :scope => [:easy_gantt, :sample]).html_safe %>"><%= l(:close_label, :scope => [:easy_gantt, :sample]).html_safe %></a>\
+    {{/global_free}}\
+    {{#global_free}}\
+    <a id="sample_upgrade_button" class="button button-positive" href="<%= l(:link_easy_gantt_plugin).html_safe %>" target="_blank" title="<%= l(:label_pro_upgrade, :scope => [:easy_gantt]) %>"><%= l(:label_pro_upgrade, :scope => [:easy_gantt]) %></a>\
+    {{/global_free}}\
+    </p>\
+    <div class="clear"></div>\
+    </div>\
+    {{/sample}}\
+    ',
+    Button:'<span class="button {{active}}" title="{{title}}"><a id="{{elid}}_button_in" class="gantt_button{{icon}}" href="javascript:void(0)" >{{name}}</a></span>',
+    LinkButton:'<a class="{{css}}" title="{{title}}" href="javascript:void(0)">{{name}}</a>',
+    easy_unimplemented:'<h3 class="title">{{modal.title}}</h3><span>{{{modal.text}}}</span>',
+    video_modal:'<h3 class="title"><%= l(:title, :scope => [:easy_gantt, :sample, :video]) %></h3>\
+      <iframe class="gantt-modal-video" width="800" height="450"\
+      src="//www.youtube.com/embed/<%= l(:video_id, :scope => [:easy_gantt, :sample, :video]) %>?autoplay=1">\
+      </iframe>\
+      <p><%= l(:text, :scope => [:easy_gantt, :sample, :video]) %></p>\
+    ',
+    video_modal_global:'<h3 class="title"><%= l(:title, :scope => [:easy_gantt, :sample_global_free, :video]) %></h3>\
+      <iframe class="gantt-modal-video" width="800" height="450"\
+      src="//www.youtube.com/embed/<%= l(:video_id, :scope => [:easy_gantt, :sample_global_free, :video]) %>?autoplay=1">\
+      </iframe>\
+      <p><%= l(:text, :scope => [:easy_gantt, :sample_global_free, :video]) %></p>\
+    ',
+    legend:'{{text}}',
+    reloadModal:'\
+      <h3 class="title"><%= l(:title, :scope => [:easy_gantt, :reload_modal]) %></h3>\
+      <h4><%= l(:label_errors, :scope => [:easy_gantt, :reload_modal]) %>:</h4>\
+      <ul class="gantt-reload-modal-errors">\
+        {{#errors}}\
+          <li class="gantt-reload-model-error">{{.}}</li>\
+        {{/errors}}\
+      </ul>\
+      <p><%= l(:text_reload_appeal, :scope => [:easy_gantt, :reload_modal]) %></p>\
+    ',
+      linkDragModal: '\
+      {{#errorReason}}\
+        <b>{{errorReason}}</b>\
+      {{/errorReason}}\
+      {{^errorReason}}\
+        <%= l(:label_relation_new) %>{{#type}} <b>{{type}}</b>{{/type}}<br>\
+        <b>{{from}}</b> <%= l(:link_end, :scope => [:easy_gantt, :link_dir]) %><br>\
+        {{#to}}<b>{{to}}</b> <%= l(:link_start, :scope => [:easy_gantt, :link_dir]) %>{{/to}}\
+      {{/errorReason}}\
+    '
+    });
+  </script>
+<% end %>
+
+<%= call_hook(:view_easy_gantts_issues_bottom, {:project => @project}) %>
+
+<% content_for :sidebar do %>
+  <%= call_hook(:view_easy_gantts_issues_sidebar, {:project => @project, :query => @query}) %>
+<% end %>

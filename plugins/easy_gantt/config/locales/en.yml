@@ -1,0 +1,124 @@
+---
+en:
+  button_print: Print
+  button_project_menu_easy_gantt: Easy Gantt
+  button_top_menu_easy_gantt: Projects Gantt
+  field_relation: Relation
+  field_easy_gantt_show_holidays: Show holidays
+  field_easy_gantt_show_project_progress: Show project progress
+  field_easy_gantt_default_zoom: Default zoom
+  easy_gantt:
+    button:
+      create_baseline: Baselines
+      critical_path: Critical path
+      day_zoom: Days
+      jump_today: Jump to today
+      load_sample_data: Load sample data
+      month_zoom: Months
+      reload: Reload (save)
+      resource_management: Resource management
+      week_zoom: Weeks
+      close_all_parent_issues: Close all parent issues
+      delayed_project_filter: Filter Delayed Projects
+    critical_path:
+      disabled: Disabled
+      last: Last
+      last_text: Issues which should not be delayed
+      longest: Longest
+      longest_text: Show longest sequence of issues
+    errors:
+      duplicate_link: Cannot create duplicate link
+      fresh_milestone: Cannot add task to non-saved milestone. Save the milestone
+        first.
+      loop_link: Cannot create looped link
+      link_target_new: Cannot create link to unsaved task. Save the changes first.
+      link_target_readonly: Read-only target issue
+      unsupported_link_type: Unsupported link type
+      overmile: Task should end before its milestone
+      too_short: Task is too short for its estimated hours count
+      unsaved_parent: Cannot add task to non-saved parent. Save the changes first.
+      no_rest_api: Easy Gantt needs REST API enabled. Turn it on in Administration -> Settings -> Authentification -> Enable REST web service
+    gateway:
+      send_failed: Request failed
+      entity_save_failed: "%{entityType} %{entityName} failed to save due to error"
+    label_pro_upgrade: Upgrade to PRO version
+    link_dir:
+      link_end: as preceding
+      link_start: as following
+    popup:
+      add_task:
+        heading: Add Issue feature
+        text: ! "New task/milestone feature is available only in Easy Gantt PRO \r\n<a
+          href=\"https://www.easyredmine.com/easy-gantt-upgrade-to-pro\">Check for
+          update!</a>"
+      baseline:
+        heading: Baselines feature
+        text: ! "Baselines feature is available only in Easy Gantt PRO \r\n<a href=\"https://www.easyredmine.com/easy-gantt-upgrade-to-pro\">Check
+          for update!</a>"
+      critical:
+        heading: Critical path feature
+        text: ! "Critical path feature is available only in Easy Gantt PRO \r\n<a
+          href=\"https://www.easyredmine.com/easy-gantt-upgrade-to-pro\">Check for
+          update!</a>"
+      resource:
+        heading: Resource manager feature
+        text: Resource Management feature is available only in <a href="https://www.easyredmine.com/">
+          Easy Redmine</a>
+        easy_text: ! 'Resource Management Plugin is not installed - get it <a href="https://www.easyredmine.com/pricing-buy">here!</a>'
+    sample_global_free:
+      text: Sample data cannot be closed. Gantt over all projects is available only
+        in PRO version
+      video:
+        text: Here you can see most of features of Gantt over all projects
+        title: Sample video of Gantt over all projects
+        video_id: zd3M0KYxcXM
+    sample:
+      close_label: Close this window and load real project data
+      header: Sample data are loaded!
+      text: We have prepared some sample data for you to <strong>try all Easy Gantt
+        features with no stress</strong>. We also want to encourage you to watch a
+        video guide showing useful tweaks. Closing this window will load real project
+        data.
+      video_label: Watch video tutorial
+      video:
+        text: Here you can see most of features of this Gantt module
+        title: Sample video
+        video_id: UHgqfsrD59Q
+    title:
+      button_test: Test button (only for testing)
+      day_zoom: Zoom to day scale
+      jump_today: Display timeline at today
+      month_zoom: Zoom to month scale
+      week_zoom: Zoom to week scale
+    reload_modal:
+      title: Gantt failed to save properly
+      label_errors: Errors
+      text_reload_appeal: Do you want to ignore unsaved items and reload data from server?
+  easy_query:
+    name:
+      easy_gantt_easy_issue_query: Easy gantt
+  heading_delay_popup: Define delay in days
+  button_use_actual_delay: Use actual delay
+  heading_demo_feature_popup: Coming soon
+  heading_easy_gantts_issues: Easy Gantt Free
+  label_start_to_start: Start to start
+  label_finish_to_finish: Finish to finish
+  label_start_to_finish: Start to finish
+  label_easy_gantt: Easy Gantt
+  label_easy_gantt_critical_path: Critical path
+  label_easy_gantt_settings: Gantt settings
+  label_filter_group_easy_gantt_easy_issue_query: Task fields
+  link_easy_gantt_plugin: https://www.easyredmine.com/easy-gantt-upgrade-to-pro
+  permission_view_easy_gantt: View project EasyGantt
+  permission_edit_easy_gantt: Edit project EasyGantt
+  permission_view_global_easy_gantt: View global EasyGantt
+  permission_edit_global_easy_gantt: Edit global EasyGantt
+  permission_view_personal_easy_gantt: View personal EasyGantt
+  permission_edit_personal_easy_gantt: Edit personal EasyGantt
+  project_default_page:
+    easy_gantt: Easy Gantt
+  text_demo_feature_popup: This feature will be available soon.
+  text_easy_gantt_footer: Redmine Gantt powered by Easy
+  text_easy_gantt_show_holidays: Show current user holidays on gantt (works only in easyredmine)
+  text_easy_gantt_show_project_progress: Show completed percent on project's bar (can be slow)
+  title_easy_gantt_settings: Easy Gantt

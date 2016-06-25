@@ -1,0 +1,801 @@
+{
+  "easy_gantt_data": {
+    "start_date": "2015-04-20",
+    "end_date": "2015-10-24",
+    "columns": [
+      {
+        "name": "id",
+        "title": "#"
+      },
+      {
+        "name": "subject",
+        "title": "Subject"
+      },
+      {
+        "name": "priority",
+        "title": "Priority"
+      },
+      {
+        "name": "assigned_to",
+        "title": "Assignee"
+      }
+    ],
+    "projects": [
+      {
+        "id": 50,
+        "name": "Ad-Hoc Easy Redmine Implementation"
+      }
+    ],
+    "issues": [
+      {
+        "id": 251,
+        "name": "Trackers \u0026 Statuses \u0026 Activities",
+        "start_date": "2015-06-29",
+        "due_date": "2015-06-29",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "251"
+          },
+          {
+            "name": "subject",
+            "value": "Trackers \u0026 Statuses \u0026 Activities"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 247,
+        "name": "User roles and personal pages",
+        "start_date": "2015-07-02",
+        "due_date": "2015-07-02",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "247"
+          },
+          {
+            "name": "subject",
+            "value": "User roles and personal pages"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 264,
+        "name": "Deployment into Production",
+        "start_date": "2015-07-09",
+        "due_date": "2015-07-10",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-6 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "264"
+          },
+          {
+            "name": "subject",
+            "value": "Deployment into Production"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 265,
+        "name": "Testing in production",
+        "start_date": "2015-07-13",
+        "due_date": "2015-07-14",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "265"
+          },
+          {
+            "name": "subject",
+            "value": "Testing in production"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 252,
+        "name": "Users and groups",
+        "start_date": "2015-07-13",
+        "due_date": "2015-07-13",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "252"
+          },
+          {
+            "name": "subject",
+            "value": "Users and groups"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 254,
+        "name": "Custom properties for the basic entities",
+        "start_date": "2015-07-13",
+        "due_date": "2015-07-13",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "254"
+          },
+          {
+            "name": "subject",
+            "value": "Custom properties for the basic entities"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 249,
+        "name": "Project templates",
+        "start_date": "2015-07-16",
+        "due_date": "2015-07-16",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 33,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "249"
+          },
+          {
+            "name": "subject",
+            "value": "Project templates"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 253,
+        "name": "Desired Outputs",
+        "start_date": "2015-07-17",
+        "due_date": "2015-07-20",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "253"
+          },
+          {
+            "name": "subject",
+            "value": "Desired Outputs"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 256,
+        "name": "Extensions uninstall",
+        "start_date": "2015-07-21",
+        "due_date": "2015-07-21",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 33,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "256"
+          },
+          {
+            "name": "subject",
+            "value": "Extensions uninstall"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 248,
+        "name": "Project structure definition",
+        "start_date": "2015-07-21",
+        "due_date": "2015-07-21",
+        "estimated": 1.0,
+        "progress": 0.7,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 33,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "248"
+          },
+          {
+            "name": "subject",
+            "value": "Project structure definition"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 250,
+        "name": "Areas of usage",
+        "start_date": "2015-07-22",
+        "due_date": "2015-07-31",
+        "estimated": 1.0,
+        "progress": 0.4,
+        "css": "gantt-issue tracker-5 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 31,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "250"
+          },
+          {
+            "name": "subject",
+            "value": "Areas of usage"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 259,
+        "name": "Users \u0026 groups",
+        "start_date": "2015-07-23",
+        "due_date": "2015-07-23",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 33,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "259"
+          },
+          {
+            "name": "subject",
+            "value": "Users \u0026 groups"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 266,
+        "name": "Help Desk Set-up",
+        "start_date": "2015-07-27",
+        "due_date": "2015-07-28",
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 33,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "266"
+          },
+          {
+            "name": "subject",
+            "value": "Help Desk Set-up"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 255,
+        "name": "Roles, Trackers, Statuses, Custom Fields",
+        "start_date": "2015-07-27",
+        "due_date": "2015-07-28",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "255"
+          },
+          {
+            "name": "subject",
+            "value": "Roles, Trackers, Statuses, Custom Fields"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 258,
+        "name": "Personal Pages Templates",
+        "start_date": "2015-08-03",
+        "due_date": "2015-08-04",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "258"
+          },
+          {
+            "name": "subject",
+            "value": "Personal Pages Templates"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 261,
+        "name": "E-learning for users",
+        "start_date": "2015-08-03",
+        "due_date": "2015-08-05",
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "261"
+          },
+          {
+            "name": "subject",
+            "value": "E-learning for users"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": "Client *"
+          }
+        ]
+      },
+      {
+        "id": 263,
+        "name": "Training for users",
+        "start_date": "2015-08-10",
+        "due_date": "2015-08-11",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "263"
+          },
+          {
+            "name": "subject",
+            "value": "Training for users"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 267,
+        "name": "Review Meeting ",
+        "start_date": "2015-08-10",
+        "due_date": "2015-08-10",
+        "estimated": 1.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 34,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "267"
+          },
+          {
+            "name": "subject",
+            "value": "Review Meeting "
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 257,
+        "name": "Projects Structure + Templates",
+        "start_date": "2015-08-11",
+        "due_date": "2015-08-12",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "257"
+          },
+          {
+            "name": "subject",
+            "value": "Projects Structure + Templates"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 260,
+        "name": "E-learning for Admins",
+        "start_date": "2015-08-12",
+        "due_date": "2015-08-14",
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "260"
+          },
+          {
+            "name": "subject",
+            "value": "E-learning for Admins"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": "Client *"
+          }
+        ]
+      },
+      {
+        "id": 268,
+        "name": "Re-Set Up",
+        "start_date": "2015-08-12",
+        "due_date": "2015-08-12",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 34,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "268"
+          },
+          {
+            "name": "subject",
+            "value": "Re-Set Up"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "id": 262,
+        "name": "Admin Training",
+        "start_date": "2015-08-20",
+        "due_date": "2015-08-21",
+        "estimated": 2.0,
+        "progress": 0.0,
+        "css": "gantt-issue tracker-4 status-1 priority-9 priority-default overdue created-by-me issue-overdue",
+        "fixed_version_id": 32,
+        "overdue": true,
+        "project_id": 50,
+        "columns": [
+          {
+            "name": "id",
+            "value": "262"
+          },
+          {
+            "name": "subject",
+            "value": "Admin Training"
+          },
+          {
+            "name": "priority",
+            "value": "Normal"
+          },
+          {
+            "name": "assigned_to",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "id": 67,
+        "source_id": 247,
+        "target_id": 252,
+        "type": "precedes",
+        "delay": 0
+      },
+      {
+        "id": 71,
+        "source_id": 248,
+        "target_id": 266,
+        "type": "precedes",
+        "delay": 4
+      },
+      {
+        "id": 70,
+        "source_id": 251,
+        "target_id": 247,
+        "type": "precedes",
+        "delay": 2
+      },
+      {
+        "id": 68,
+        "source_id": 252,
+        "target_id": 253,
+        "type": "precedes",
+        "delay": 3
+      },
+      {
+        "id": 66,
+        "source_id": 254,
+        "target_id": 248,
+        "type": "precedes",
+        "delay": 0
+      },
+      {
+        "id": 14,
+        "source_id": 255,
+        "target_id": 257,
+        "type": "precedes",
+        "delay": 1
+      },
+      {
+        "id": 13,
+        "source_id": 256,
+        "target_id": 255,
+        "type": "precedes",
+        "delay": 3
+      },
+      {
+        "id": 65,
+        "source_id": 258,
+        "target_id": 260,
+        "type": "precedes",
+        "delay": 3
+      },
+      {
+        "id": 11,
+        "source_id": 260,
+        "target_id": 262,
+        "type": "precedes",
+        "delay": 1
+      },
+      {
+        "id": 12,
+        "source_id": 261,
+        "target_id": 263,
+        "type": "precedes",
+        "delay": 1
+      },
+      {
+        "id": 15,
+        "source_id": 264,
+        "target_id": 265,
+        "type": "precedes",
+        "delay": 1
+      },
+      {
+        "id": 16,
+        "source_id": 267,
+        "target_id": 268,
+        "type": "precedes",
+        "delay": 1
+      }
+    ],
+    "versions": [
+      {
+        "id": 31,
+        "name": "Analysis",
+        "start_date": "2015-06-28",
+        "project_id": 50
+      },
+      {
+        "id": 32,
+        "name": "Settings \u0026 Training",
+        "start_date": "2015-07-09",
+        "project_id": 50
+      },
+      {
+        "id": 33,
+        "name": "Deployment",
+        "start_date": "2015-07-10",
+        "project_id": 50
+      },
+      {
+        "id": 34,
+        "name": "Review",
+        "start_date": "2015-08-05",
+        "project_id": 50
+      }
+    ]
+  }
+}
