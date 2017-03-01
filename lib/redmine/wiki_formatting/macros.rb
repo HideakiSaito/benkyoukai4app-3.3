@@ -169,7 +169,7 @@ module Redmine
       end
 
       desc "br."
-      macro :br do 
+      macro :br do |obj, args|
         raw "<br>"
       end
 
