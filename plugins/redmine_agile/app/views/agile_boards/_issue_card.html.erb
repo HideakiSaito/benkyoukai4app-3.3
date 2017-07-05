@@ -88,11 +88,8 @@
           <% else %>
             <span style="color:blue;">
               <input type="checkbox" id="c<%=item.id%>" value="1" disabled />
-            <%= item.subject.slice(0, 20) %>
-            <em>
-            <%= link_to "=>「詳細」", issue_path(issue) , 
+            <%= link_to item.subject.slice(0, 20), issue_path(issue) , 
             :onclick=>"window.open(this.href,'hoge', 'height=1000, width=1000,resizable=yes,scrollbars=yes');return false;" %>
-            </em>
             </span>
           <% end %>
           <br/>
